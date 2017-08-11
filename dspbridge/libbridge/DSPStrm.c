@@ -84,7 +84,6 @@
 
 /*  ----------------------------------- Others */
 #include <dsptrap.h>
-#include <memry.h>
 
 /*  ----------------------------------- This */
 #include "_dbdebug.h"
@@ -852,4 +851,3 @@ static int GetStrmInfo(DSP_HSTREAM hStream, struct STRM_INFO *pStrmInfo,
 
 	return status;
 }
-
