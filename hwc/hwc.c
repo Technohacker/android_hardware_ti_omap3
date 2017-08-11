@@ -45,8 +45,7 @@
 
 #define DIV_ROUND_UP(a, b) (((a) + (b) - 1) / (b))
 
-/* For some reason this does not include it without an absolute path, which sucks totally. */
-#include "../../../../kernel/lge/p970/include/video/dsscomp.h"
+#include "video/dsscomp.h"
 
 #include "hal_public.h"
 
@@ -1001,7 +1000,7 @@ static int omap3_hwc_prepare(struct hwc_composer_device_1 *dev, size_t numDispla
     num_fb = num.BGR + num.RGB;
 #ifndef OMAP3_HWC_DISABLE_YUV_OVERLAY
     /* hack for omap3, overlay can be active only for YUV format */
-    /* For other formats everything has to go through frame buffer */ 
+    /* For other formats everything has to go through frame buffer */
 
     if (num.NV12 && num_fb <= 1)
     {
@@ -1019,7 +1018,7 @@ static int omap3_hwc_prepare(struct hwc_composer_device_1 *dev, size_t numDispla
         hwc_dev->use_sgx = 1;
         hwc_dev->swap_rb = is_BGR(hwc_dev->fb_dev->base.format);
     }
-  
+
     if (debug) {
         ALOGD("prepare (%d) - %s (comp=%d, poss=%d/%d scaled, RGB=%d,BGR=%d,NV12=%d) (ext=%s%s%ddeg%s %dex/%dmx (last %dex,%din)\n",
              dsscomp->sync_id,
