@@ -61,6 +61,8 @@
 #include "xdm_extension_dec2.h"
 #include "split_dec.h"
 
+void h264_scaling_list(OMX_U32 size, OMX_U32 *nRbspPosition, OMX_U8 *nRbspByte);
+
 #ifdef __PERF_INSTRUMENTATION__
 	#include "perf.h"
 #endif

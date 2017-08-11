@@ -68,7 +68,6 @@
 #ifdef USE_ION
 #include <sys/mman.h>
 #include <sys/eventfd.h>
-#include <ion.h>
 #endif
 
 #define LOG_NDEBUG 0
