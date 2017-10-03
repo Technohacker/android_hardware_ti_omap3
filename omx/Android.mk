@@ -70,6 +70,7 @@ ifeq ($(DVFS_ENABLED),1)
 TI_OMX_CFLAGS += -DDVFS_ENABLED
 endif
 
+TI_OMX_COMP_ADDITIONAL_DEPENDENCIES := $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr
 
 TI_OMX_COMP_C_INCLUDES := \
         $(TI_OMX_INCLUDES) \
@@ -79,7 +80,8 @@ TI_OMX_COMP_C_INCLUDES := \
         $(TI_OMX_SYSTEM)/perf/inc \
         $(TI_OMX_SYSTEM)/resource_manager/inc \
         $(TI_OMX_SYSTEM)/resource_manager_proxy/inc \
-        $(TI_OMX_SYSTEM)/omx_policy_manager/inc
+        $(TI_OMX_SYSTEM)/omx_policy_manager/inc \
+        $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/include \
 
 ifeq ($(PERF_INSTRUMENTATION),1)
 include $(TI_OMX_SYSTEM)/perf/Android.mk
@@ -105,6 +107,14 @@ include $(TI_OMX_AUDIO)/aac_enc/tests/Android.mk
 include $(TI_OMX_AUDIO)/mp3_dec/src/Android.mk
 include $(TI_OMX_AUDIO)/wma_dec/src/Android.mk
 include $(TI_OMX_AUDIO)/wma_dec/tests/Android.mk
+
+#call to ittiam audio
+include $(TI_OMX_AUDIO)/aac_dec_ittiam/Android.mk
+include $(TI_OMX_AUDIO)/aac_enc_ittiam/Android.mk
+include $(TI_OMX_AUDIO)/mp3_dec_ittiam/Android.mk
+include $(TI_OMX_AUDIO)/pcm_dec_ittiam/Android.mk
+include $(TI_OMX_AUDIO)/wma_dec_ittiam/Android.mk
+include $(TI_OMX_AUDIO)/wmapro_dec_ittiam/Android.mk
 
 #call to VoIP/speech
 include $(TI_OMX_AUDIO)/nbamr_dec/src/Android.mk
@@ -142,13 +152,7 @@ include $(TI_OMX_VIDEO)/video_encode/Android.mk
 #include $(TI_OMX_VIDEO)/video_encode/test/Android.mk
 #include $(TI_OMX_VIDEO)/prepost_processor/Android.mk
 
-#call ittiam
-include $(TI_OMX_AUDIO)/aac_dec_ittiam/Android.mk
-include $(TI_OMX_AUDIO)/aac_enc_ittiam/Android.mk
-include $(TI_OMX_AUDIO)/mp3_dec_ittiam/Android.mk
-include $(TI_OMX_AUDIO)/pcm_dec_ittiam/Android.mk
-include $(TI_OMX_AUDIO)/wma_dec_ittiam/Android.mk
-include $(TI_OMX_AUDIO)/wmapro_dec_ittiam/Android.mk
+#call to ittiam video
 include $(TI_OMX_VIDEO)/video_decode_ittiam/src/Android.mk
 include $(TI_OMX_VIDEO)/video_encode_ittiam/Android.mk
 
